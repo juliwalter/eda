@@ -71,35 +71,3 @@ def extract_dates(df) -> pd.DataFrame:
     
     # return sub DataFrame where dtype is in numerics
     return df.select_dtypes(include=date_types)
-
-
-# ------------------------------------------------------------------------
-# ------------------------ Misc -----------------------------------------
-# ------------------------------------------------------------------------
-
-if __name__ == '__main__':
-    # Read titanic test dataset
-    df = pd.DataFrame(
-        {
-            'int': [1, 2, 3],
-            'float': [1.1, 2.2, 3.3],
-            'str': ['one', 'two', 'three'],
-            'dt': [pd.datetime(2001,1,1), pd.datetime(2002,2,2), pd.datetime(2003,3,3)],
-            'td': [pd.Timedelta(minutes=1), pd.Timedelta(minutes=2), pd.Timedelta(minutes=3)]
-        }    
-    )
-    
-    # Call functions for testing
-    print('num -----------')
-    print(extract_num(df))
-    print('float -----------')
-    print(extract_float(df))
-    print('int -----------')
-    print(extract_int(df))
-    print('cat -----------')
-    print(extract_cat(df))
-    print('dates -----------')
-    print(extract_dates(df))
-    
-else:
-    print('sub_df v.0.1 import succesful!')
